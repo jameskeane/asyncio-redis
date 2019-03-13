@@ -20,6 +20,7 @@
     "lib/*.js"
   ],
   "scripts": {
+    "benchmark": "node benchmarks/hgetset",
     "check": "tsc",
     "watch": "mocha --watch --reporter min test/**/*.js",
     "test": "mocha test/**/*.js"
@@ -31,6 +32,7 @@
     "@types/mocha": "^5.2.6",
     "@types/node": "^10.12.0",
     "mocha": "^6.0.2",
+    "nodemark": "^0.3.0",
     "typescript": "^3.3.3333"
   },
   "repository": {
@@ -40,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/jameskeane/asyncio-redis/issues"
   },
-  "homepage": "https://github.com/jameskeane/asyncio-redis"
+  "homepage": "https://github.com/jameskeane/asyncio-redis",
+  "dependencies": {
+    "redis": "^2.8.0"
+  }
 }
