@@ -2,7 +2,12 @@
   "name": "@asyncio/redis",
   "version": "1.0.0",
   "description": "A high performance async/await native redis client library.",
-  "keywords": ["redis", "database", "asyncio", "async/await"],
+  "keywords": [
+    "redis",
+    "database",
+    "asyncio",
+    "async/await"
+  ],
   "author": "James Keane <james.keane.github@gmail.com>",
   "license": "MIT",
   "main": "index.js",
@@ -10,7 +15,10 @@
     "lib": "lib",
     "test": "test"
   },
-  "files": ["index.js", "lib/*.js"],
+  "files": [
+    "index.js",
+    "lib/*.js"
+  ],
   "scripts": {
     "check": "tsc",
     "watch": "mocha --watch --reporter min test/**/*.js",
@@ -32,6 +40,5 @@
   "bugs": {
     "url": "https://github.com/jameskeane/asyncio-redis/issues"
   },
-  "homepage": "https://github.com/jameskeane/asyncio-redis",
-
+  "homepage": "https://github.com/jameskeane/asyncio-redis"
 }
