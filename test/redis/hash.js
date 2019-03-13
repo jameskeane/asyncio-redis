@@ -1,10 +1,13 @@
 const assert = require('assert');
-const redis = require('../../lib/redis');
+const { RedisClient, ...redis} = require('../../lib/redis');
 
 
 
 describe('Redis Hash Functions', () => {
-  let conn = null;
+  /**
+   * @type {RedisClient}
+   */
+  let conn;
 
   beforeEach(async () => {
     conn = await redis.connect();
