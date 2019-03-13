@@ -1,22 +1,34 @@
-const redis = require('./lib/redis');
+const net = require('net');
+const RedisClient = require('./lib/client');
 
 
-async function main() {
-  const client = await redis.connect();
 
-  console.log(await client.hset('test', 'key1', 'value1'));
-  console.log(await client.hset('test', 'key3', 'value3'));
-  console.log(await client.hget('test', 'key1'));  // == 'value1'
-  console.log(await client.hget('test', 'key3'));  // == 'value3'
-  console.log(await client.hget('test', 'key2'));  // == null
-  console.log(await client.hget('test2', 'key2'));  // == null
+/**
+ * Create a new connection.
+ * @return {Promise.<RedisClient>} A promise to the client. 
+ */
+function connect() {
+  return new Promise((resolve, reject) => {
+    const socket = net.createConnection({ port: 6379 });
 
-  console.log(await client.hkeys('test'));  // == ['key1']
-  console.log(await client.hkeys('emptykey'));  // == []
+    function onceConnect() {
+      socket.removeListener('error', onceError);
+      resolve(new RedisClient(socket));
+    }
 
+    /**
+     * @param  {Error} err The error
+     */
+    function onceError(err) {
+      socket.removeListener('connect', onceConnect);
+      reject(err);
+    }
 
-  // const info = await client.info();
-
-  // console.log(info);
+    socket.once('connect', onceConnect);
+    socket.once('error', onceError);
+  });
 }
-main();
+
+
+
+module.exports = { connect, RedisClient };

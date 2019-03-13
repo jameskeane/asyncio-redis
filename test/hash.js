@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { RedisClient, ...redis} = require('../../lib/redis');
+const { RedisClient, ...redis} = require('../index');
 
 
 

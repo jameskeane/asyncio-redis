@@ -20,6 +20,6 @@
         "moduleResolution": "Node"
     },
     "files": [
-        "test/redis/hash.js"
+        "test/hash.js"
     ]
 }
