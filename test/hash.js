@@ -16,7 +16,7 @@ describe('Redis Hash Functions', () => {
   afterEach(async () => {
     await conn.del('hash_tests');
     conn.close();
-  })
+  });
 
   describe('HDEL', () => {
     beforeEach(async () => {

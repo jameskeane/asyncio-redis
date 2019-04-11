@@ -20,6 +20,7 @@
         "moduleResolution": "Node"
     },
     "files": [
-        "test/hash.js"
+        "test/hash.js",
+        "test/streams.js"
     ]
 }
